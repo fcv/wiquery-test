@@ -29,7 +29,6 @@ public class Effects extends WebPage implements IWiQueryPlugin {
                         .chain(new ShakeEffect()).render());
             }
         }));
-
         add(button);
 
         Button buttonAjax = new Button("buttonAjax");
