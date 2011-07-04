@@ -1,7 +1,8 @@
 package br.fcv.wiquery_test;
 
+import org.apache.wicket.Application;
 import org.apache.wicket.protocol.http.WebApplication;
-import org.odlabs.wiquery.core.commons.IWiQuerySettings;
+import org.odlabs.wiquery.core.commons.IWiQueryInitializer;
 import org.odlabs.wiquery.core.commons.WiQuerySettings;
 
 import br.fcv.wiquery_test.effects.Effects;
@@ -12,7 +13,7 @@ import br.fcv.wiquery_test.effects.Effects;
  * 
  * @see br.fcv.wiquery_test.Start#main(String[])
  */
-public class WicketApplication extends WebApplication implements IWiQuerySettings {
+public class WicketApplication extends WebApplication implements IWiQueryInitializer {
     /**
      * @see org.apache.wicket.Application#getHomePage()
      */
@@ -28,15 +29,11 @@ public class WicketApplication extends WebApplication implements IWiQuerySetting
     public void init() {
         super.init();
 
-        mountBookmarkablePage("effects", Effects.class);
+        mountPage("effects", Effects.class);
+    }
+    
+    public void init(Application application, WiQuerySettings settings) {
+        settings.setMinifiedJavaScriptResources(true);        
     }
 
-    public WiQuerySettings getWiQuerySettings() {
-        WiQuerySettings settings = new WiQuerySettings();
-        settings.setMinifiedResources(true);
-        settings.setEnableResourcesMerging(true);
-        settings.setEmbedGeneratedStatements(true);
-        
-        return settings;
-    }
 }

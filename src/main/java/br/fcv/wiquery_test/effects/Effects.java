@@ -36,8 +36,8 @@ public class Effects extends WebPage implements IWiQueryPlugin {
 
             @Override
             protected void onEvent(AjaxRequestTarget target) {
-                target.appendJavascript(new JsQuery().$("#target")
-                        .chain(new ShakeEffect()).render().toString());
+                target.appendJavaScript(new JsQuery().$("#target")
+                        .chain(new ShakeEffect()).render());
             }
 
         });

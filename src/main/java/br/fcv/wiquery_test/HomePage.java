@@ -1,11 +1,11 @@
 package br.fcv.wiquery_test;
 
-import org.apache.wicket.PageParameters;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.odlabs.wiquery.core.events.MouseEvent;
 import org.odlabs.wiquery.core.events.WiQueryAjaxEventBehavior;
 import org.odlabs.wiquery.ui.dialog.Dialog;
@@ -30,8 +30,8 @@ public class HomePage extends WebPage {
             @Override
             protected void onEvent(AjaxRequestTarget target) {
                 increment();
-                target.addComponent(counter);
-                target.appendJavascript(dialog.open().render().toString());
+                target.add(counter);
+                target.appendJavaScript(dialog.open().render());
             }
 
         });

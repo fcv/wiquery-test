@@ -18,16 +18,22 @@
 	</licenses>
 
 	<properties>
-		<wicket.version>1.5-rc2</wicket.version>
+		<wicket.version>1.5-RC5.1</wicket.version>
 		<jetty.version>7.3.0.v20110203</jetty.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
-			<artifactId>wiquery</artifactId>
-			<version>1.2.3</version>
+			<artifactId>wiquery-core</artifactId>
+			<version>1.5-M3</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.odlabs.wiquery</groupId>
+			<artifactId>wiquery-jquery-ui</artifactId>
+			<version>1.5-M3</version>
+		</dependency>	
 
 		<!-- WICKET DEPENDENCIES -->
 		<dependency>
