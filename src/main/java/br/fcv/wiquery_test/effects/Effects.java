@@ -18,46 +18,39 @@ import org.odlabs.wiquery.ui.effects.ShakeEffect;
 
 public class Effects extends WebPage implements IWiQueryPlugin {
 
-	public Effects() {
-		
-		WebMarkupContainer button = new WebMarkupContainer("button");
-		button.add(new WiQueryEventBehavior(new Event(MouseEvent.CLICK) {
-			
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.odlabs.wiquery.core.events.Event#callback()
-			 */
-			@Override
-			public JsScope callback() {
-				return JsScope.quickScope(new JsStatement().$(null, "#target")
-						.chain(new ShakeEffect()).render());
-			}
-			
-			
-		}));
+    public Effects() {
 
-		add(button);
-		
-		Button buttonAjax = new Button("buttonAjax");
-		buttonAjax.add(new WiQueryAjaxEventBehavior(MouseEvent.CLICK) {
+        WebMarkupContainer button = new WebMarkupContainer("button");
+        button.add(new WiQueryEventBehavior(new Event(MouseEvent.CLICK) {
 
-			@Override
-			protected void onEvent(AjaxRequestTarget target) {
-				target.appendJavascript(new JsQuery().$("#target").chain(new ShakeEffect()).render().toString());				
-			}
-			
-		});
-		add(buttonAjax);
-	}
+            @Override
+            public JsScope callback() {
+                return JsScope.quickScope(new JsStatement().$(null, "#target")
+                        .chain(new ShakeEffect()).render());
+            }
+        }));
 
-	public void contribute(WiQueryResourceManager manager) {
-		EffectsHelper.shake(manager);
-		
-	}
+        add(button);
 
-	public JsStatement statement() {
-		return null;
-	}
+        Button buttonAjax = new Button("buttonAjax");
+        buttonAjax.add(new WiQueryAjaxEventBehavior(MouseEvent.CLICK) {
+
+            @Override
+            protected void onEvent(AjaxRequestTarget target) {
+                target.appendJavascript(new JsQuery().$("#target")
+                        .chain(new ShakeEffect()).render().toString());
+            }
+
+        });
+        add(buttonAjax);
+    }
+
+    public void contribute(WiQueryResourceManager manager) {
+        EffectsHelper.shake(manager);
+    }
+
+    public JsStatement statement() {
+        return null;
+    }
 
 }

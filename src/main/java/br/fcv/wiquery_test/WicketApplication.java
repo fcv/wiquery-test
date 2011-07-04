@@ -11,21 +11,21 @@ import br.fcv.wiquery_test.effects.Effects;
  * @see br.fcv.wiquery_test.Start#main(String[])
  */
 public class WicketApplication extends WebApplication {
-	/**
-	 * @see org.apache.wicket.Application#getHomePage()
-	 */
-	@Override
-	public Class<HomePage> getHomePage() {
-		return HomePage.class;
-	}
+    /**
+     * @see org.apache.wicket.Application#getHomePage()
+     */
+    @Override
+    public Class<HomePage> getHomePage() {
+        return HomePage.class;
+    }
 
-	/**
-	 * @see org.apache.wicket.Application#init()
-	 */
-	@Override
-	public void init() {
-		super.init();
-		
-		mountBookmarkablePage("effects", Effects.class);
-	}
+    /**
+     * @see org.apache.wicket.Application#init()
+     */
+    @Override
+    public void init() {
+        super.init();
+
+        mountBookmarkablePage("effects", Effects.class);
+    }
 }

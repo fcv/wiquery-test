@@ -11,34 +11,35 @@ import org.odlabs.wiquery.core.events.WiQueryAjaxEventBehavior;
 import org.odlabs.wiquery.ui.dialog.Dialog;
 
 public class HomePage extends WebPage {
-	
-	private int counter = 0;
 
-	public HomePage(final PageParameters parameters) {
+    private int counter = 0;
 
-		final Dialog dialog = new Dialog("dialog");
-		add(dialog);
-		
-		final Label counter = new Label("counter", new PropertyModel<String>(this, "counter"));
-		counter.setOutputMarkupId(true);
-		dialog.add(counter);
+    public HomePage(final PageParameters parameters) {
 
-		Button button = new Button("open-dialog");
-		button.add(new WiQueryAjaxEventBehavior(MouseEvent.CLICK) {
+        final Dialog dialog = new Dialog("dialog");
+        add(dialog);
 
-			@Override
-			protected void onEvent(AjaxRequestTarget target) {
-				increment();				
-				target.addComponent(counter);
-				target.appendJavascript(dialog.open().render().toString());
-			}
+        final Label counter = new Label("counter", new PropertyModel<String>(
+                this, "counter"));
+        counter.setOutputMarkupId(true);
+        dialog.add(counter);
 
-		});
-		add(button);
-	}	
-	
-	private void increment() {
-		counter++;
-	}
+        Button button = new Button("open-dialog");
+        button.add(new WiQueryAjaxEventBehavior(MouseEvent.CLICK) {
+
+            @Override
+            protected void onEvent(AjaxRequestTarget target) {
+                increment();
+                target.addComponent(counter);
+                target.appendJavascript(dialog.open().render().toString());
+            }
+
+        });
+        add(button);
+    }
+
+    private void increment() {
+        counter++;
+    }
 
 }
