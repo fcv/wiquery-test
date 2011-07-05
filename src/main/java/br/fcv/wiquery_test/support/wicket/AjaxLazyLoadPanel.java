@@ -63,18 +63,7 @@ public abstract class AjaxLazyLoadPanel extends Panel
 			@Override
 			protected String getChannelName() {			    
 			    return id;
-			}
-			
-			@Override
-			protected IAjaxCallDecorator getAjaxCallDecorator() {
-			    return new AjaxPostprocessingCallDecorator(super.getAjaxCallDecorator()) {                
-			        @Override
-			        public CharSequence postDecorateScript(Component component,
-			                CharSequence script) {
-			            return "console.log('here');" + script;
-			        }
-			    };
-			}
+			}		
 
 			@Override
 			protected void respond(final AjaxRequestTarget target)
