@@ -28,12 +28,12 @@
 			<artifactId>wiquery-core</artifactId>
 			<version>1.5-M3</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
 			<artifactId>wiquery-jquery-ui</artifactId>
 			<version>1.5-M3</version>
-		</dependency>	
+		</dependency>
 
 		<!-- WICKET DEPENDENCIES -->
 		<dependency>
@@ -42,6 +42,13 @@
 			<version>${wicket.version}</version>
 			<type>pom</type>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-devutils</artifactId>
+			<version>${wicket.version}</version>
+		</dependency>
+
 		<!-- OPTIONAL DEPENDENCY <dependency> <groupId>org.apache.wicket</groupId> 
 			<artifactId>wicket-extensions</artifactId> <version>${wicket.version}</version> 
 			</dependency> -->

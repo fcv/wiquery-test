@@ -1,9 +1,12 @@
 package br.fcv.wiquery_test.effects;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.devutils.inspector.InspectorPage;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Button;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.odlabs.wiquery.core.commons.IWiQueryPlugin;
 import org.odlabs.wiquery.core.commons.WiQueryResourceManager;
 import org.odlabs.wiquery.core.events.Event;
@@ -42,6 +45,16 @@ public class Effects extends WebPage implements IWiQueryPlugin {
 
         });
         add(buttonAjax);
+        
+        add(new Link<Void>("inspector") {
+
+            @Override
+            public void onClick() {
+                PageParameters params = new PageParameters();
+                params.add("pageId", getPage().getId());
+                setResponsePage(new InspectorPage(params)) ;               
+            }            
+        });
     }
 
     public void contribute(WiQueryResourceManager manager) {
