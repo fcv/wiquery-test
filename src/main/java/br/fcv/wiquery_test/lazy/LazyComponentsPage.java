@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.wicket.Component;
-import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.extensions.ajax.markup.html.IndicatingAjaxLink;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.slf4j.Logger;
