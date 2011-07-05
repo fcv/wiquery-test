@@ -6,6 +6,7 @@ import org.odlabs.wiquery.core.commons.IWiQueryInitializer;
 import org.odlabs.wiquery.core.commons.WiQuerySettings;
 
 import br.fcv.wiquery_test.effects.Effects;
+import br.fcv.wiquery_test.lazy.LazyComponentsPage;
 
 /**
  * Application object for your web application. If you want to run this
@@ -30,6 +31,7 @@ public class WicketApplication extends WebApplication implements IWiQueryInitial
         super.init();
 
         mountPage("effects", Effects.class);
+        mountPage("lazy", LazyComponentsPage.class);
     }
     
     public void init(Application application, WiQuerySettings settings) {
