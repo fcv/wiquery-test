@@ -13,6 +13,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import br.fcv.wiquery_test.dialog.DialogPage;
 import br.fcv.wiquery_test.effects.EffectsPage;
 import br.fcv.wiquery_test.lazy.LazyComponentsPage;
+import br.fcv.wiquery_test.pjax.PjaxPage;
 
 public class HomePage extends WebPage {
 
@@ -21,7 +22,8 @@ public class HomePage extends WebPage {
         @SuppressWarnings("unchecked")
         List<Class<? extends WebPage>> pages = Arrays.asList(DialogPage.class, 
                 EffectsPage.class, 
-                LazyComponentsPage.class);
+                LazyComponentsPage.class,
+                PjaxPage.class);
         
         
         ListView<Class<? extends WebPage>> listView = new ListView<Class<? extends WebPage>>("repeater", pages) {
