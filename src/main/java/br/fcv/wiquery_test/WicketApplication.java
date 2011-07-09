@@ -5,6 +5,7 @@ import org.apache.wicket.protocol.http.WebApplication;
 import org.odlabs.wiquery.core.commons.IWiQueryInitializer;
 import org.odlabs.wiquery.core.commons.WiQuerySettings;
 
+import br.fcv.wiquery_test.dialog.DialogPage;
 import br.fcv.wiquery_test.effects.EffectsPage;
 import br.fcv.wiquery_test.lazy.LazyComponentsPage;
 
@@ -32,6 +33,7 @@ public class WicketApplication extends WebApplication implements IWiQueryInitial
 
         mountPage("effects", EffectsPage.class);
         mountPage("lazy", LazyComponentsPage.class);
+        mountPage("dialog", DialogPage.class);
     }
     
     public void init(Application application, WiQuerySettings settings) {

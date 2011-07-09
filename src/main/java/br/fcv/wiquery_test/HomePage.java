@@ -1,45 +1,50 @@
 package br.fcv.wiquery_test;
 
-import org.apache.wicket.ajax.AjaxRequestTarget;
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.form.Button;
-import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.list.ListItem;
+import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.odlabs.wiquery.core.events.MouseEvent;
-import org.odlabs.wiquery.core.events.WiQueryAjaxEventBehavior;
-import org.odlabs.wiquery.ui.dialog.Dialog;
+
+import br.fcv.wiquery_test.dialog.DialogPage;
+import br.fcv.wiquery_test.effects.EffectsPage;
+import br.fcv.wiquery_test.lazy.LazyComponentsPage;
 
 public class HomePage extends WebPage {
 
-    private int counter = 0;
-
     public HomePage(final PageParameters parameters) {
-
-        final Dialog dialog = new Dialog("dialog");
-        add(dialog);
-
-        final Label counter = new Label("counter", new PropertyModel<String>(
-                this, "counter"));
-        counter.setOutputMarkupId(true);
-        dialog.add(counter);
-
-        Button button = new Button("open-dialog");
-        button.add(new WiQueryAjaxEventBehavior(MouseEvent.CLICK) {
+        
+        @SuppressWarnings("unchecked")
+        List<Class<? extends WebPage>> pages = Arrays.asList(DialogPage.class, 
+                EffectsPage.class, 
+                LazyComponentsPage.class);
+        
+        
+        ListView<Class<? extends WebPage>> listView = new ListView<Class<? extends WebPage>>("repeater", pages) {
 
             @Override
-            protected void onEvent(AjaxRequestTarget target) {
-                increment();
-                target.add(counter);
-                target.appendJavaScript(dialog.open().render());
+            protected void populateItem(ListItem<Class<? extends WebPage>> item) {
+                final Class<? extends WebPage> classPage = item.getModelObject();
+                
+                Link<Void> button = new Link<Void>("link") {
+                    @Override
+                    public void onClick() {
+                        setResponsePage(classPage);
+                    }                    
+                };
+                button.add(new Label("label", classPage.getSimpleName()));
+                
+                item.add(button);
             }
-
-        });
-        add(button);
+        };
+        add(listView);
+        
     }
 
-    private void increment() {
-        counter++;
-    }
+    
 
 }
