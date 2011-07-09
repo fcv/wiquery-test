@@ -19,9 +19,9 @@ import org.odlabs.wiquery.core.javascript.JsStatement;
 import org.odlabs.wiquery.ui.effects.EffectsHelper;
 import org.odlabs.wiquery.ui.effects.ShakeEffect;
 
-public class Effects extends WebPage implements IWiQueryPlugin {
+public class EffectsPage extends WebPage implements IWiQueryPlugin {
 
-    public Effects() {
+    public EffectsPage() {
 
         WebMarkupContainer button = new WebMarkupContainer("button");
         button.add(new WiQueryEventBehavior(new Event(MouseEvent.CLICK) {
