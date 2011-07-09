@@ -39,5 +39,9 @@ public class WicketApplication extends WebApplication implements IWiQueryInitial
     public void init(Application application, WiQuerySettings settings) {
         settings.setMinifiedJavaScriptResources(true);        
     }
+    
+    public static WicketApplication get() {
+        return (WicketApplication) Application.get();
+    }
 
 }
