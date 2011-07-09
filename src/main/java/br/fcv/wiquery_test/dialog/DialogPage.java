@@ -1,4 +1,4 @@
-package br.fcv.wiquery_test;
+package br.fcv.wiquery_test.dialog;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.WebPage;
@@ -10,11 +10,11 @@ import org.odlabs.wiquery.core.events.MouseEvent;
 import org.odlabs.wiquery.core.events.WiQueryAjaxEventBehavior;
 import org.odlabs.wiquery.ui.dialog.Dialog;
 
-public class HomePage extends WebPage {
+public class DialogPage extends WebPage {
 
     private int counter = 0;
 
-    public HomePage(final PageParameters parameters) {
+    public DialogPage(final PageParameters parameters) {
 
         final Dialog dialog = new Dialog("dialog");
         add(dialog);
