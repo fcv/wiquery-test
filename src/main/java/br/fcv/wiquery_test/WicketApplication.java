@@ -8,6 +8,7 @@ import org.odlabs.wiquery.core.commons.WiQuerySettings;
 import br.fcv.wiquery_test.dialog.DialogPage;
 import br.fcv.wiquery_test.effects.EffectsPage;
 import br.fcv.wiquery_test.lazy.LazyComponentsPage;
+import br.fcv.wiquery_test.pjax.PjaxPage;
 
 /**
  * Application object for your web application. If you want to run this
@@ -34,6 +35,7 @@ public class WicketApplication extends WebApplication implements IWiQueryInitial
         mountPage("effects", EffectsPage.class);
         mountPage("lazy", LazyComponentsPage.class);
         mountPage("dialog", DialogPage.class);
+        mountPage("pjax", PjaxPage.class);
     }
     
     public void init(Application application, WiQuerySettings settings) {
