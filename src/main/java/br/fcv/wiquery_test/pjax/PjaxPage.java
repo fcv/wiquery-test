@@ -3,7 +3,6 @@ package br.fcv.wiquery_test.pjax;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.behavior.Behavior;
-import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.ILinkListener;
@@ -25,11 +24,7 @@ import br.fcv.wiquery_test.support.wicket.JQueryPjaxJavaScriptReference;
 
 public class PjaxPage extends WebPage {
     
-    public PjaxPage(PageParameters parameters) {
-        this();
-    }
-    
-    public PjaxPage() {
+    public PjaxPage(final PageParameters parameters) {
         
         Link<Void> link = new Link<Void>("link") {
 
@@ -39,11 +34,16 @@ public class PjaxPage extends WebPage {
                 System.out.println(target);
                 getRequestCycle().replaceAllRequestHandlers(new ComponentRenderingRequestHandler(this));                
             }
+            
+            @Override
+            protected CharSequence getURL() {   
+                parameters.set(parameters.getIndexedCount(), "other");
+                return urlFor(PjaxPage.this.getClass(), parameters);
+            }
         };
         link.add(new MyBehavior());
         
-        add(link);        
-        //--
+        add(link);
     }
     
     //-- using IWiQueryPlugin is one possible solution to have jquery inserted at page... but i still need to know how
@@ -74,12 +74,6 @@ public class PjaxPage extends WebPage {
         @Override
         public void bind(Component component) {
             component.setOutputMarkupId(true);
-        }
-        
-        @Override
-        public void onComponentTag(Component component, ComponentTag tag) {
-            super.onComponentTag(component, tag);
-            tag.put("href", "/nice-value");
         }
         
         @Override
