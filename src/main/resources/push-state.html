@@ -21,10 +21,10 @@
 				alert("1 location: " + document.location + ", state: " + JSON.stringify(event.state));
 			});
 
-			window.onpopstate = function(event) {
-				alert("2 location: " + document.location + ", state: " + JSON.stringify(event.state));
-			};
-
+			if ($.inArray('state', $.event.props) < 0) {
+				$.event.props.push('state');
+			}
+			
 		});
 	</script>
 </head>

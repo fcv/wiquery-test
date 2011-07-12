@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<title>Push State</title>
+	<script type="text/javascript">
+		$(function() {
+			$("div")
+				.bind('dragenter', function() { console.log("dragenter"); } )
+				.bind('dragleave', function() { console.log('dragleave'); } );
+			
+		});
+	</script>
+	<style type="text/css">
+		body div {
+			border: 1px solid red;
+			width: 200px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<h1>push state example</h1>
+	<div>
+		Drag here
+	</div>
+</body>
+</html>
