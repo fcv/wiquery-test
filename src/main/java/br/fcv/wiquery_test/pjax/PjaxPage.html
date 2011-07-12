@@ -3,6 +3,20 @@
       xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd"> 
     <head>
         <title>Pjax Test Page</title>
+        <style type="text/css">
+        	div ul li {
+        		border-top: 1px solid gray;        		
+        	}
+        	
+        	div ul li:last-child {
+        		border-bottom: 1px solid gray;
+        	}
+        
+        	div ul li.link {
+        		cursor: pointer;
+        		color: blue;
+        	}
+        </style>
     </head>
     <body>
     	<h1>Testing Pajax</h1>
@@ -12,5 +26,14 @@
     		<a href="/test" wicket:id="link">go</a>
     	</div>
     	<div id="src" ></div> 
+    	<div id="target">
+    		<div wicket:id="container">    			
+	    		<ul >
+	    			<li wicket:id="listView">
+	    				<span wicket:id="type">D</span> - <span wicket:id="name">name</span>
+	    			</li>
+	    		</ul>
+    		</div>
+    	</div>
     </body>
 </html>
