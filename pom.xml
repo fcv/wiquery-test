@@ -20,9 +20,16 @@
 	<properties>
 		<wicket.version>1.5-RC5.1</wicket.version>
 		<jetty.version>7.3.0.v20110203</jetty.version>
+		<scala.version>2.9.0</scala.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
 			<artifactId>wiquery-core</artifactId>
@@ -99,6 +106,16 @@
 					<exclude>**/*.java</exclude>
 				</excludes>
 			</resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/scala</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
 		</resources>
 		<testResources>
 			<testResource>
@@ -114,12 +131,38 @@
 		</testResources>
 		<plugins>
 			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>scala-compile-first</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>add-source</goal>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-test-compile</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<args>
+						<arg>-deprecation</arg>
+					</args>
+				</configuration>
+			</plugin>
+			<plugin>
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>1.6</source>
+					<target>1.6</target>
 					<optimize>true</optimize>
 					<debug>true</debug>
 				</configuration>
@@ -151,10 +194,24 @@
 			</snapshots>
 		</repository>
 		<repository>
+			<id>scala-tools.org.snapshots</id>
+			<name>Scala Tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-snapshots</url>
+			<snapshots />
+		</repository>
+		<repository>
 			<id>wiquery-maven-repo</id>
 			<name>WiQuery repository</name>
 			<url>https://wiquery.googlecode.com/svn/repo/</url>
 		</repository>
 	</repositories>
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-Tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 </project>
