@@ -9,21 +9,21 @@
 			$(function() {
 				$('#container a')					
 					.pjax('#container', {
-						fragment: '#container',
-						success: function() { console.log('success event'); }
-					})					
-					.live('click', function() {
-						console.log('live click event');
-					});
+						fragment: '#container'
+					})
 				
 				$('#container')
-					.bind('start.pjax', function() { console.log('start.pjax event'); } )
-					.bind('end.pjax', function() { console.log('end.pjax event'); } );
+					.bind('start.pjax', function() { 
+						$(this).fadeOut(200); 
+					} )
+					.bind('end.pjax', function() { 
+						$(this).fadeIn(200); 
+					} );
 			});
 		</script>
     	<h1>Testing Pjax</h1>
-    	<div>For more information about jquery-pjax see: <a href="https://github.com/defunkt/jquery-pjax">https://github.com/defunkt/jquery-pjax</a></div>
-    	
+    	<div>Using <a href="https://github.com/defunkt/jquery-pjax">jquery-pjax</a></div>
+    	<hr />
     	<div>
 	    	<div id="container">
 	    		<div>
