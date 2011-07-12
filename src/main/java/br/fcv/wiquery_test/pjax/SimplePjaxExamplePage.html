@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd"> 
+    <head>
+        <title>Pjax Test Page</title>
+    </head>   
+    <body>
+    	 <script type="text/javascript">
+			$(function() {
+				$('#container a')					
+					.pjax('#container', {
+						fragment: '#container',
+						success: function() { console.log('success event'); }
+					})					
+					.live('click', function() {
+						console.log('live click event');
+					});
+				
+				$('#container')
+					.bind('start.pjax', function() { console.log('start.pjax event'); } )
+					.bind('end.pjax', function() { console.log('end.pjax event'); } );
+			});
+		</script>
+    	<h1>Testing Pjax</h1>
+    	<div>For more information about jquery-pjax see: <a href="https://github.com/defunkt/jquery-pjax">https://github.com/defunkt/jquery-pjax</a></div>
+    	
+    	<div>
+	    	<div id="container">
+	    		<div>
+	    			Is Pjax: <label wicket:id="isPjax">-1</label><br />
+		    		Next Value: <label wicket:id="value">-1</label><br />    		
+		    		<a href="/test" wicket:id="link">go</a>
+	    		</div>
+	    	</div>
+    	</div>    	
+    </body>
+</html>

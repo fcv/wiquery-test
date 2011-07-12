@@ -14,6 +14,7 @@ import br.fcv.wiquery_test.dialog.DialogPage;
 import br.fcv.wiquery_test.effects.EffectsPage;
 import br.fcv.wiquery_test.lazy.LazyComponentsPage;
 import br.fcv.wiquery_test.pjax.PjaxPage;
+import br.fcv.wiquery_test.pjax.SimplePjaxExamplePage;
 
 public class HomePage extends WebPage {
 
@@ -23,7 +24,8 @@ public class HomePage extends WebPage {
         List<Class<? extends WebPage>> pages = Arrays.asList(DialogPage.class, 
                 EffectsPage.class, 
                 LazyComponentsPage.class,
-                PjaxPage.class);
+                PjaxPage.class,
+                SimplePjaxExamplePage.class);
         
         
         ListView<Class<? extends WebPage>> listView = new ListView<Class<? extends WebPage>>("repeater", pages) {
