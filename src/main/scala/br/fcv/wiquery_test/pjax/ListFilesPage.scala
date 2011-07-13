@@ -54,12 +54,8 @@ class ListFilesPage(parameters: PageParameters) extends WebPage {
                     .sorted
         }
         
-        val newParams = new PageParameters(parameters);
-        if (newParams.getIndexedCount > 0)
-            newParams.remove(newParams.getIndexedCount - 1);
-        private val up = new BookmarkablePageLink("up", classOf[ListFilesPage], newParams)
-        up.setEnabled( parameters.getIndexedCount > 0 )
-        add(up)
+        add(new BookmarkablePageLink("up", classOf[ListFilesPage], new PageParameters(parameters).remove(parameters.getIndexedCount - 1))
+                    .setEnabled( parameters.getIndexedCount > 0 ))        
         
         add(new ListView("files", files.toList) {
             override def populateItem(item: ListItem[File]) {
@@ -77,6 +73,8 @@ class ListFilesPage(parameters: PageParameters) extends WebPage {
                 item.add(link)
             }
         })
+        
+        add(new Label("now", new NowModel))
     }
 
     class NowModel(format: String) extends LoadableDetachableModel[String] {
