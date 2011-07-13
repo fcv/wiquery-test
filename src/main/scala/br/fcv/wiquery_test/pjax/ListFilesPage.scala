@@ -3,19 +3,19 @@ package br.fcv.wiquery_test.pjax;
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
-import scala.collection.JavaConversions.seqAsJavaList
+
+import scala.collection.JavaConversions._
+
 import org.apache.wicket.markup.html.basic.Label
+import org.apache.wicket.markup.html.link.BookmarkablePageLink
 import org.apache.wicket.markup.html.list.ListItem
+import org.apache.wicket.markup.html.list.ListView
 import org.apache.wicket.markup.html.WebMarkupContainer
 import org.apache.wicket.markup.html.WebPage
 import org.apache.wicket.model.LoadableDetachableModel
 import org.apache.wicket.request.cycle.RequestCycle
 import org.apache.wicket.request.http.WebRequest
 import org.apache.wicket.request.mapper.parameter.PageParameters
-import org.apache.wicket.markup.html.list.ListView
-import org.apache.wicket.markup.html.link.Link
-import org.apache.wicket.markup.html.link.BookmarkablePageLink
-
 
 
 class ListFilesPage(parameters: PageParameters) extends WebPage {
