@@ -5,21 +5,28 @@
     <title>List Files Page</title>
 </head>   
 <body> 
-	
-	<div wicket:id="header">
-		
-		<span wicket:id="now">test</span>
-	</div>
-	
-	<div wicket:id="folder">
-		<ul>
-			<li><a wicket:id="up">..</a></li>
-			<li wicket:id="files">
-				<span wicket:id="type">D/F</span>
-				<a wicket:id="link"><span wicket:id="filename"></span></a>
-			</li>
-		</ul>
-		<div><span wicket:id="now">test</span> </div>
+	<script type="text/javascript">
+		$(function() {
+			$("#folder li a").pjax('#folder', {fragment: '#folder'});
+			
+			$('#folder').bind({
+				'start.pjax': function() { 
+					// console.log('start.pjax event');
+					$('#folder').fadeOut(2000);
+				},
+				'end.pjax': function() { 
+					// console.log('end.pjax event');
+					$('#folder').fadeIn(2000);
+				}
+			});
+		})
+	</script>
+	<div>
+		<div wicket:id="header">
+		</div>
+		<hr />
+		<div wicket:id="folder">
+		</div>
 	</div>   	    	
 </body>
 </html>

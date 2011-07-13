@@ -40,6 +40,7 @@ public class WicketApplication extends WebApplication implements IWiQueryInitial
         mountPage("pjax", PjaxPage.class);
         mountPage("simple-pjax", SimplePjaxExamplePage.class);
         mountPage("list-files", ListFilesPage.class);
+        
     }
     
     public void init(Application application, WiQuerySettings settings) {
