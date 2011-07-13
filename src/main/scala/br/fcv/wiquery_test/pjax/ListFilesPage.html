@@ -5,10 +5,20 @@
     <title>List Files Page</title>
 </head>   
 <body> 
-	<!--  -->
+	
 	<div wicket:id="header">
-		<!--  -->
+		
 		<span wicket:id="now">test</span>
+	</div>
+	
+	<div wicket:id="folder">
+		<ul>
+			<li><a wicket:id="up">..</a></li>
+			<li wicket:id="files">
+				<span wicket:id="type">D/F</span>
+				<a wicket:id="link"><span wicket:id="filename"></span></a>
+			</li>
+		</ul>
 	</div>   	    	
 </body>
 </html>

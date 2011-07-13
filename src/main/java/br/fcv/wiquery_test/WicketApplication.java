@@ -8,6 +8,7 @@ import org.odlabs.wiquery.core.commons.WiQuerySettings;
 import br.fcv.wiquery_test.dialog.DialogPage;
 import br.fcv.wiquery_test.effects.EffectsPage;
 import br.fcv.wiquery_test.lazy.LazyComponentsPage;
+import br.fcv.wiquery_test.pjax.ListFilesPage;
 import br.fcv.wiquery_test.pjax.PjaxPage;
 import br.fcv.wiquery_test.pjax.SimplePjaxExamplePage;
 
@@ -38,6 +39,7 @@ public class WicketApplication extends WebApplication implements IWiQueryInitial
         mountPage("dialog", DialogPage.class);
         mountPage("pjax", PjaxPage.class);
         mountPage("simple-pjax", SimplePjaxExamplePage.class);
+        mountPage("list-files", ListFilesPage.class);
     }
     
     public void init(Application application, WiQuerySettings settings) {
