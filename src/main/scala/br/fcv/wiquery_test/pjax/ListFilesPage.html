@@ -8,7 +8,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$("#folder li a").pjax('#folder', {fragment: '#folder'});
-			
+			/*
 			$('#folder').bind({
 				'start.pjax': function() { 
 					// console.log('start.pjax event');
@@ -19,13 +19,11 @@
 					$('#folder').fadeIn(2000);
 				}
 			});
+			*/
 		})
 	</script>
 	<div>
-		<div wicket:id="header">
-		</div>
-		<hr />
-		<div wicket:id="folder">
+		<div wicket:id="content">
 		</div>
 	</div>   	    	
 </body>

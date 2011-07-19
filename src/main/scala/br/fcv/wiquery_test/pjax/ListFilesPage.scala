@@ -14,18 +14,25 @@ class ListFilesPage(parameters: PageParameters) extends WebPage {
 
     parameters.remove("_pjax");
     
-    add(new HeaderPanel("header"));
-    add(new ListFilesPanel("folder", parameters)
-            .setMarkupId("folder")
-            .setOutputMarkupId(true));
+    add( contentPanel("content", parameters) )
 
     protected def isPjax = {
         val request = RequestCycle.get().getRequest().asInstanceOf[WebRequest];
-        request.getHeader("X-PJAX").toBoolean;
+        val pjax = request.getHeader("X-PJAX")
+        println("pjxa: " + pjax)
+        pjax != null && pjax.toBoolean
     }
     
     override def renderHead(response: IHeaderResponse) {
         response.renderJavaScriptReference(CoreJavaScriptResourceReference.get());
         response.renderJavaScriptReference(JQueryPjaxJavaScriptReference.getInstance());
+    }
+    
+    def contentPanel(id: String, params: PageParameters) = { 
+        if (isPjax) { 
+            new ListFilesPanel(id, params) 
+        } else {
+            new FullContentPanel(id, params)
+        }
     }
 }
