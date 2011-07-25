@@ -12,14 +12,11 @@ import br.fcv.wiquery_test.support.wicket.JQueryPjaxJavaScriptReference
 
 class ListFilesPage(parameters: PageParameters) extends WebPage {
 
-    parameters.remove("_pjax");
-    
-    add( contentPanel("content", parameters) )
+    add( contentPanel("content", new PageParameters(parameters).remove("_pjax")) )
 
     protected def isPjax = {
         val request = RequestCycle.get().getRequest().asInstanceOf[WebRequest];
         val pjax = request.getHeader("X-PJAX")
-        println("pjxa: " + pjax)
         pjax != null && pjax.toBoolean
     }
     
