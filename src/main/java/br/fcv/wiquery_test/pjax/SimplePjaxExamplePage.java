@@ -10,6 +10,8 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.string.StringValue;
 import org.odlabs.wiquery.core.commons.CoreJavaScriptResourceReference;
 
+import br.fcv.wiquery_test.WicketApplication;
+import br.fcv.wiquery_test.support.wicket.GoogleClosureJavaScriptCompressor;
 import br.fcv.wiquery_test.support.wicket.JQueryPjaxJavaScriptReference;
 
 public class SimplePjaxExamplePage extends WebPage {
@@ -33,6 +35,15 @@ public class SimplePjaxExamplePage extends WebPage {
     public void renderHead(IHeaderResponse response) {
         response.renderJavaScriptReference(CoreJavaScriptResourceReference.get());
         response.renderJavaScriptReference(JQueryPjaxJavaScriptReference.getInstance());
+        String js = "       //-- testing stripping \n" +
+        "       $(function() {\n" +
+        "              var value = 'teste';\n" +
+        "              alert('v: ' + value);\n" +
+        "       })\n" + 
+        "       //-- end of testing\n";
+        
+        js = GoogleClosureJavaScriptCompressor.getInstance().compress(js);
+        response.renderJavaScript(js, "bleh");
     }  
     
     public boolean isPjax() {

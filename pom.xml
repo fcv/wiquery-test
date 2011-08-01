@@ -31,6 +31,12 @@
 		</dependency>
 	
 		<dependency>
+			<groupId>com.google.javascript</groupId>
+			<artifactId>closure-compiler</artifactId>
+			<version>r946</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
 			<artifactId>wiquery-core</artifactId>
 			<version>1.5-M3</version>
@@ -205,7 +211,7 @@
 			<url>https://wiquery.googlecode.com/svn/repo/</url>
 		</repository>
 	</repositories>
-	
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>scala-tools.org</id>
