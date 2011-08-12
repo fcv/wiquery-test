@@ -10,6 +10,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
+import br.fcv.wiquery_test.date_picker.CalendarPage;
 import br.fcv.wiquery_test.dialog.DialogPage;
 import br.fcv.wiquery_test.effects.EffectsPage;
 import br.fcv.wiquery_test.lazy.LazyComponentsPage;
@@ -27,7 +28,8 @@ public class HomePage extends WebPage {
                 LazyComponentsPage.class,
                 PjaxPage.class,
                 SimplePjaxExamplePage.class,
-                ListFilesPage.class);
+                ListFilesPage.class,
+                CalendarPage.class);
         
         
         ListView<Class<? extends WebPage>> listView = new ListView<Class<? extends WebPage>>("repeater", pages) {
