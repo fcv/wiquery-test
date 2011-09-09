@@ -10,7 +10,7 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.util.convert.IConverter;
-import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.odlabs.wiquery.ui.datepicker.DatePicker;
@@ -30,20 +30,20 @@ public class CalendarPage extends WebPage {
         
         final Form<DateHolder> form = new Form<DateHolder>("form", new CompoundPropertyModel<DateHolder>(model));
         
-        final DatePicker<DateTime> datePicker = new DatePicker<DateTime>("date", DateTime.class) {
+        final DatePicker<LocalDate> datePicker = new DatePicker<LocalDate>("date", LocalDate.class) {
             
             @SuppressWarnings("unchecked")
             @Override
             public <C> IConverter<C> getConverter(Class<C> type) {
                 
-                return (IConverter<C>) new IConverter<DateTime>() {
+                return (IConverter<C>) new IConverter<LocalDate>() {
                     @Override
-                    public DateTime convertToObject(String value, Locale locale) {
-                        DateTime dt = FORMATTER.parseDateTime(value); 
+                    public LocalDate convertToObject(String value, Locale locale) {
+                        LocalDate dt = FORMATTER.parseLocalDate(value); 
                         return dt;
                     }
                     
-                    public String convertToString(DateTime value, Locale locale) {
+                    public String convertToString(LocalDate value, Locale locale) {
                         return FORMATTER.print(value);
                     };
                 };
@@ -57,7 +57,7 @@ public class CalendarPage extends WebPage {
             @Override
             protected String load() {
                 
-                DateTime date = form.getModelObject().getDate();
+                LocalDate date = form.getModelObject().getDate();
                 return String.valueOf(date);
             }
         };
@@ -71,13 +71,13 @@ public class CalendarPage extends WebPage {
     }
 
     public static class DateHolder {
-        private DateTime date;
+        private LocalDate date;
         
-        public void setDate(DateTime date) {
+        public void setDate(LocalDate date) {
             this.date = date;
         }
         
-        public DateTime getDate() {
+        public LocalDate getDate() {
             return date;
         }
     }
