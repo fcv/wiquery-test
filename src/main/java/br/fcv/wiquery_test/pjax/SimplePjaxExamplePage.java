@@ -8,9 +8,8 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.http.WebRequest;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.string.StringValue;
-import org.odlabs.wiquery.core.commons.CoreJavaScriptResourceReference;
+import org.odlabs.wiquery.core.resources.CoreJavaScriptResourceReference;
 
-import br.fcv.wiquery_test.WicketApplication;
 import br.fcv.wiquery_test.support.wicket.GoogleClosureJavaScriptCompressor;
 import br.fcv.wiquery_test.support.wicket.JQueryPjaxJavaScriptReference;
 

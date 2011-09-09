@@ -5,9 +5,8 @@ import org.apache.wicket.markup.html.WebPage
 import org.apache.wicket.request.cycle.RequestCycle
 import org.apache.wicket.request.http.WebRequest
 import org.apache.wicket.request.mapper.parameter.PageParameters
-import org.odlabs.wiquery.core.commons.CoreJavaScriptResourceReference
-
 import br.fcv.wiquery_test.support.wicket.JQueryPjaxJavaScriptReference
+import org.odlabs.wiquery.core.resources.CoreJavaScriptResourceReference
 
 
 class ListFilesPage(parameters: PageParameters) extends WebPage {

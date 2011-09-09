@@ -48,7 +48,10 @@ public class CalendarPage extends WebPage {
                     };
                 };
             };
-        }.setShowOn(ShowOnEnum.FOCUS);
+        };
+        datePicker
+            .setShowOn(ShowOnEnum.FOCUS)
+            .setDateFormat("dd/mm/yy");
         
         final IModel<String> labelModel = new LoadableDetachableModel<String>() {
             @Override

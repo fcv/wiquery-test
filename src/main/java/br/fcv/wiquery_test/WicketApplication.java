@@ -2,8 +2,8 @@ package br.fcv.wiquery_test;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.protocol.http.WebApplication;
-import org.odlabs.wiquery.core.commons.IWiQueryInitializer;
-import org.odlabs.wiquery.core.commons.WiQuerySettings;
+import org.odlabs.wiquery.core.IWiQueryInitializer;
+import org.odlabs.wiquery.core.WiQuerySettings;
 
 import br.fcv.wiquery_test.dialog.DialogPage;
 import br.fcv.wiquery_test.effects.EffectsPage;
@@ -43,12 +43,13 @@ public class WicketApplication extends WebApplication implements IWiQueryInitial
         
     }
     
-    public void init(Application application, WiQuerySettings settings) {
-        settings.setMinifiedJavaScriptResources(true);        
-    }
-    
     public static WicketApplication get() {
         return (WicketApplication) Application.get();
+    }
+    
+    @Override
+    public void init(Application application, WiQuerySettings wiQuerySettings) {
+        wiQuerySettings.setMinifiedJavaScriptResources(true);
     }
 
 }

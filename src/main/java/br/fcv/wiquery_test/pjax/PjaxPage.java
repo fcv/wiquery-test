@@ -24,7 +24,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.handler.ComponentRenderingRequestHandler;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.odlabs.wiquery.core.commons.CoreJavaScriptResourceReference;
+import org.odlabs.wiquery.core.resources.CoreJavaScriptResourceReference;
 
 import br.fcv.wiquery_test.support.wicket.JQueryPjaxJavaScriptReference;
 
