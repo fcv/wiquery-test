@@ -41,6 +41,11 @@ public class EffectsPage extends WebPage {
                 target.appendJavaScript(new JsQuery().$("#target")
                         .chain(new ShakeEffect()).render());
             }
+            
+            @Override
+            public JsStatement statement() {
+                return null;
+            }
 
         });
         add(buttonAjax);

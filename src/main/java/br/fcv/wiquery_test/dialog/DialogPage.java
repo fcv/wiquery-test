@@ -8,6 +8,7 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.odlabs.wiquery.core.events.MouseEvent;
 import org.odlabs.wiquery.core.events.WiQueryAjaxEventBehavior;
+import org.odlabs.wiquery.core.javascript.JsStatement;
 import org.odlabs.wiquery.ui.dialog.Dialog;
 
 public class DialogPage extends WebPage {
@@ -32,6 +33,11 @@ public class DialogPage extends WebPage {
                 increment();
                 target.add(counter);
                 target.appendJavaScript(dialog.open().render());
+            }
+            
+            @Override
+            public JsStatement statement() {
+                return null;
             }
 
         });
