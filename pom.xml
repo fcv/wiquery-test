@@ -69,13 +69,7 @@
 			<artifactId>wicket-datetime</artifactId>
 			<version>${wicket.version}</version>
 		</dependency>
-		
-		<dependency>
-    		<groupId>org.wicketstuff</groupId>
-    		<artifactId>jslibraries</artifactId>
-    		<version>1.5-RC5.1</version>
-		</dependency>
-		
+				
 		<!-- wiquery -->
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
